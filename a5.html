@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root{
+          --m-b: 10px;
+            }
+        .parent{
+            background-color: white;
+            width: 35em;
+            height:50em;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .child{
+            background-color:blue;
+            width: 30em;
+            height: 45em;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .child2{
+            padding: 4px;
+        }
+        .inputalign{
+            margin-left: 90px;
+            margin-top: -10px;
+        }
+
+        #name{margin-bottom: var(--m-b);}
+        #email{margin-bottom: var(--m-b);}
+        #password{margin-bottom: var(--m-b);}
+        #dob{margin-bottom: var(--m-b);}
+        #address{margin-bottom: var(--m-b);}
+        #phoneno{margin-bottom: var(--m-b);}
+        #male{margin-bottom: var(--m-b);}
+        #female{margin-bottom: var(--m-b);}
+        #chess{margin-bottom: var(--m-b);}
+        #tennis{margin-bottom: var(--m-b);}
+        #cricket{margin-bottom: var(--m-b);}
+        #football{margin-bottom: var(--m-b);}
+    </style>
+    <title>Document</title>
+    <script>
+      function validateform()
+      {
+          /*var namechk = document.f1.name.value;
+          var emailchk = document.f1.email.value;
+          var atposition = emailchk.indexOf("@");
+          var dotposition = emailchk.lastIndexOf(".");
+          if(namechk==null){
+              alert("Name cannot be blank");
+              return false;
+          }*/
+          var namechk=document.validate.name.value;
+            if(namechk==null||namechk=="")
+            {
+             alert("name can't be blank");
+             return false;
+            }
+          var emailchk=document.validate.email.value;
+          var atposition = emailchk.indexOf("@");
+          var dotposition = emailchk.lastIndexOf(".");
+          if(atposition<1||dotposition<atposition+2)
+          {
+              alert("Please enter valid email id");
+          }else if(emailchk==null){alert("email cannot be blank");}
+          
+          var passwordchk=document.validate.password.value;
+          if(passwordchk.length<6)
+          {alert("password length cannot be less than 6")
+           }else if(passwordchk==null){alert("Password cannot be null");}
+           
+          var dobchk = document.validate.dob.value;
+          if(dobchk==null)
+          {alert("Date of birth cannot be null");}
+
+          var addresschk=document.validate.address.value;
+          if(addresschk==null)
+          {alert("Address cannot be null");}
+
+          var phonenochk=document.validate.phoneno.value;
+          if(isNaN(phonenochk))
+          {
+              alert("Enter numeric value only in phone no");
+          }
+
+          var getSelectedValue = document.querySelector( 'input[name="gender"]:checked');   
+          if(getSelectedValue==null)
+          {alert("Please select gender");}
+
+      }
+
+
+    </script>
+</head>
+<body>
+    <div class="parent">
+    <div class="child">
+        <div class="child2">
+            <h2>Personal Information</h2>
+            <form name="validate">
+                <label>Name</label><div class="inputalign"> <input type="text" placeholder="name" name="name"></div>
+                <label>Email</label><div class="inputalign"><input type="email" placeholder="email" name="email"></div>
+                <label>Password</label><div class="inputalign"><input type="password" placeholder="password" name="password"></div>
+                <label>Date of Birth</label><div class="inputalign"><input type="text" placeholder="dob" name="dob"></div>
+                <label>Address</label><div class="inputalign"><textarea placeholder="address" name="address"></textarea></div>
+                <label>Phone no</label><div class="inputalign"><input type="text" placeholder="phoneno" name="phoneno"></div>
+                <label>Gender</label><br><br>
+                <div class="inputalign"><input type="radio" id="male" name="gender">
+                <label for="male">Male</label><br></div>
+                <div class="inputalign"><input type="radio" id="female" name="gender">
+                <label for="female">Female</label><br></div>
+                
+                <label>Hobbies</label>
+                <div class="inputalign"><input type="checkbox" id="chess" name="hobbies">
+                <label for="chess">Chess</label><br></div>
+                <div class="inputalign"><input type="checkbox" id="tennis" name="hobbies">
+                <label for="tennis">Tennis</label><br></div>
+                <div class="inputalign"><input type="checkbox" id="cricket" name="hobbies">
+                <label for="cricket">cricket</label><br></div>
+                <div class="inputalign"><input type="checkbox" id="football" name="hobbies">
+                <label for="football">Football</label><br></div>
+                
+                <label for="myfile">Upload Photo &emsp;</label>
+                <input type="file" name="myfile" id="myfile"><input type="button" value="upload" id="upload">
+                <br><br>
+                <label for="degree">Choose a degree:</label>
+                
+                <select id="degree" name="degrees">
+                    <div class="inputalign"> <option value="btech">Btech.</option>
+                   <option value="Bsc">Bsc</option>
+                   <option value="BA">BA</option>
+                   <option value="Eng. hons">Eng. hons</option>
+                </select></div>
+                <br><br>
+                &emsp;<input type="button" value="Submit" onclick="return validateform()">&emsp;&emsp;
+                <input type="button" value="reset" id="reset" onclick="">
+                </form>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
